@@ -1,11 +1,12 @@
 const reels = document.querySelectorAll('.reel');
 
+// Get random symbols from symbols array using index
 function getRandomSymbol() {
   const symbols = ["🍒", "🍊", "🍇", "🍓", "🍉", "🍋", "🍏"];
   const randomIndex = Math.floor(Math.random() * symbols.length);
   return symbols[randomIndex];
 }
-
+//Get JSON data from server
 async function fetchData() {
   try {
     const response = await fetch('/api/data');
@@ -15,6 +16,7 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
+//Get symbol data from server using function named fetchData
 async function startSpin() {
     const symbols = await fetchData();
   
